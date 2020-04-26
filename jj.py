@@ -1,6 +1,5 @@
-from jk import User
+from jk import FuelClient
 
 if __name__ == '__main__':
-    user = User(name='hoge')
+    user = FuelClient(clientid="asdf", clientsecret="fugafuga")
     print(user)
-    print(user.age)
