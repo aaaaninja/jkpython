@@ -1,13 +1,13 @@
-import dataclasses
+from dataclasses import dataclass, field, InitVar
 import typing
 
-@dataclasses.dataclass #(frozen=True)
+@dataclass(frozen=True)
 class FuelClient:
-    clientsecret: dataclasses.InitVar[str]
-    clientid: dataclasses.InitVar[str]
-    et_folder_client: str = dataclasses.field(init=False)
+    clientsecret: InitVar[str]
+    clientid: InitVar[str]
+    et_folder_client: str = field(init=False)
     def __post_init__(self, clientid, clientsecret):
-        self.et_folder_client = clientid + clientsecret
+        object.__setattr__(self, 'et_folder_client', clientid + clientsecret)
         
     
     def ET_Folder(self) -> str:
