@@ -5,6 +5,8 @@ from typing_extensions import Protocol
 class HasName(Protocol):
     name: str
 
+class Hoge(Protocol): ...
+
 @dataclass(frozen=True)
 class Person():
     name: str
